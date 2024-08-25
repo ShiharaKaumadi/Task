@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import List from "./components/List.jsx";
+import List from "./compoents/ListUser.jsx";
 import axios from "axios";
-import {baseURL} from "./utils/constant.js";
+import {baseURL} from "./util/constants.js";
 
 function App() {
     const [input, setInput] = useState("");

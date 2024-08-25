@@ -19,3 +19,34 @@ module.exports.saveTask = (req,res)=>{
         res.send({error:err,msg:"Something went wrong.."})
     })
 };
+
+
+//updateTask function
+module.exports.updateTask = (req,res)=>{
+    const {id} = req.params;
+    const {task} = req.body;
+
+    TaskModel.findByIdAndUpdate(id,{task})
+        .then(() => {
+            console.log("Updates Successfully!");
+            res.send("Updated");
+        }).catch((err)=>{
+        console.log(err);
+        res.send({error:err,msg:"Something went wrong.."})
+    })
+};
+
+
+//deleteTask function
+module.exports.deleteTask = (req,res)=>{
+    const {id} = req.params;
+
+    TaskModel.findByIdAndDelete(id)
+        .then((data) => {
+            console.log("Deleted Successfully!");
+            res.send("Deleted");
+        }).catch((err)=>{
+        console.log(err);
+        res.send({error:err,msg:"Something went wrong.."})
+    })
+};
